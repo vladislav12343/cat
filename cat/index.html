@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Костостудия</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #e67e22;">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="#"> Котостудия</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="#hero">О нас</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#gallery">Галерея</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#booking">Запись на съёмку</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="hero" class="hero">
+    <div class="container text-center text-white">
+        <h1>Мы фотографируем котиков</h1>
+        <p>Добро пожаловать в «Костостудия» — пространство, где пушистые становятся моделями!</p>
+        <a href="#booking" class="btn btn-light btn-lg mt-3" style="color: #e67e22; font-weight: bold;">Записаться</a>
+    </div>
+</section>
+
+<section id="gallery" class="py-4" style="background-color: #fef5e7;">
+    <div class="container">
+        <h2 class="text-center mb-4" style="color: #e67e22;">Галерея</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="images/535b0e92e6ed2d35762873e029734f1a.jpg" alt="Котик 1">
+            </div>
+            <div class="gallery-card">
+                <img src="images/close-up-cat-yawning-home_1048944-3060869.avif" alt="Котик 2">
+            </div>
+            <div class="gallery-card">
+                <img src="images/close-up-portrait-british-shorthair-cat-white-background_166650-520.avif" alt="Котик 3">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="booking" class="py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h3 class="text-center mb-4" style="color: #e67e22;">Записаться на фотосессию</h3>
+                    <form id="catForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Имя:</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Email:</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Имя коттика:</label>
+                            <input type="text" class="form-control" id="catname" required>
+                        </div>
+                        <button type="submit" class="btn w-100" style="background-color: #e67e22; color: white;">Записаться</button>
+                    </form>
+                    <div id="formMessage" class="mt-3 text-center" style="color: #e67e22; font-weight: bold;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer style="background-color: #e67e22; color: white; text-align: center; padding: 20px; margin-top: 30px;">
+    <p>© 2025 Котостудия. Хвостатые звёзды ✨</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('catForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let catname = document.getElementById('catname').value;
+        
+        if(name && email && catname) {
+            document.getElementById('formMessage').innerHTML = 'Спасибо! Мы свяжемся с вами 😻';
+            document.getElementById('catForm').reset();
+            setTimeout(function() {
+                document.getElementById('formMessage').innerHTML = '';
+            }, 5000);
+        }
+    });
+</script>
+</body>
+</html>
